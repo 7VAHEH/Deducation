@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeducationApi", "DeducationApi\DeducationApi.csproj", "{C551F561-4A75-4F06-8A2B-F0B5195CCC48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C551F561-4A75-4F06-8A2B-F0B5195CCC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C551F561-4A75-4F06-8A2B-F0B5195CCC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C551F561-4A75-4F06-8A2B-F0B5195CCC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C551F561-4A75-4F06-8A2B-F0B5195CCC48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC03DCD4-5B3E-4155-8B53-C62569D9783F}
+	EndGlobalSection
+EndGlobal
