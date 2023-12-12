@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href=".jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <style>
+        body {
+            background-color: #f2f2ff;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .nav-link {
+            color: #5e7fc5;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #f2f2ff;">
+        <div class="col-md-5 text-center">
+            <a class="navbar-brand" href="/index.html">
+                <img src="/Assets/D_images/Logo.png" alt="Deducation" width="150" height="30"
+                    class="d-inline-block align-text-top rounded" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse col-md-3 text-right" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">
+                        <i class="bi bi-people-fill"></i>People</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">
+                        <i class="bi bi-briefcase-fill"></i>Partners</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">
+                        <i class="bi bi-building-fill"></i>Institutions</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Avatar in the navigation bar -->
+        <div class="col-md-2 text-center">
+            <div class="avatar" onclick="openPersonalPage()">
+                <img src="/Assets/D_images/avatar.png" alt="User Avatar" />
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <!-- Post Form -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="What's on your mind?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Top 5 Universities -->
+                <div class="card mb-4">
+                    <div class="card-header"> Top 5 Universities in Armenia </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="ysu.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Yerevan State University</h5>
+                                        <p>
+                                            Yerevan State University is a prestigious institution located in Yerevan,
+                                            Armenia. It offers a wide range of undergraduate and graduate programs.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="aua.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/aua.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">American University of Armenia</h5>
+                                        <p>
+                                            The American University of Armenia is a private institution of higher
+                                            education located in Yerevan, Armenia. It offers undergraduate and graduate
+                                            programs in a variety of fields.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="rau.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/rau.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Russian-Armenian University</h5>
+                                        <p>
+                                            The Russian-Armenian University is a private institution of higher education
+                                            located in Yerevan, Armenia. It offers undergraduate and graduate programs
+                                            in a variety of fields.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="ufa.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ufa.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">French University in Armenia</h5>
+                                        <p>
+                                            The French University in Armenia is a private institution of higher
+                                            education
+                                            located in Yerevan, Armenia. It offers undergraduate and graduate programs
+                                            in a variety of fields.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="ase.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ase.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Armenian State University of Economics</h5>
+                                        <p>
+                                            The Armenian State University of Economics is a public institution of higher
+                                            education located in Yerevan, Armenia. It offers undergraduate and graduate
+                                            programs in economics and related fields.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- University Posts -->
+                <div class="card mb-4">
+                    <div class="card-header"> University Posts </div>
+                    <ul class="list-group list-group-flush">
+                        <!-- Sample University Post -->
+                        <li class="list-group-item">
+                            <a href="university_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="University Image"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Harvard University</h5>
+                                        <p>New faculty added to the Computer Science department!</p>
+                                        <small class="text-muted">1 day ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="YSU.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Yerevan State University</h5>
+                                        <p>New educational plan for the Computer Science major starting next semester!
+                                        </p>
+                                        <small class="text-muted">1 week ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Add more university posts here -->
+                        <li class="list-group-item">
+                            <a href="oxford.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/oxford.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">University of Oxford</h5>
+                                        <p>New faculty added to the Physics department!</p>
+                                        <small class="text-muted">2 weeks ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="cambridge.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/cambridge.jpg" class="mr-3" alt="University Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">University of Cambridge</h5>
+                                        <p>New educational plan for the Mathematics major starting next semester!</p>
+                                        <small class="text-muted">3 weeks ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Employer Requirements -->
+                <div class="card mb-4">
+                    <div class="card-header"> Employer Requirements </div>
+                    <ul class="list-group list-group-flush">
+                        <!-- Job Position 1 -->
+                        <li class="list-group-item">
+                            <a href="job_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="Company Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Software Engineer - ABC Tech</h5>
+                                        <p>We are hiring a software engineer with expertise in Java and Spring.</p>
+                                        <small class="text-muted">2 days ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Job Position 2 -->
+                        <li class="list-group-item">
+                            <a href="job_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="Company Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Front-end Developer - XYZ Solutions</h5>
+                                        <p>We are looking for a skilled Front-end Developer with expertise in HTML, CSS,
+                                            and JavaScript.</p>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Add more job positions here -->
+                        <li class="list-group-item">
+                            <a href="job_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/google.png" class="mr-3" alt="Company Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Data Scientist - Google</h5>
+                                        <p>Google is seeking a Data Scientist with experience in machine learning and
+                                            data analysis.</p>
+                                        <small class="text-muted">1 week ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="job_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/amazon.png" class="mr-3" alt="Company Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Cloud Engineer - Amazon Web Services</h5>
+                                        <p>Amazon Web Services is hiring a Cloud Engineer with experience in AWS
+                                            services and infrastructure.</p>
+                                        <small class="text-muted">2 weeks ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="job_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/microsoft.png" class="mr-3" alt="Company Logo"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Software Development Engineer - Microsoft</h5>
+                                        <p>Microsoft is seeking a Software Development Engineer with experience in C#
+                                            and .NET.</p>
+                                        <small class="text-muted">3 weeks ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Feed Posts -->
+                <div class="card">
+                    <div class="card-header"> Recent Posts </div>
+                    <ul class="list-group list-group-flush">
+                        <!-- Sample Post -->
+                        <li class="list-group-item">
+                            <a href="post_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="User Image"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">John Doe</h5>
+                                        <p>Awesome day at work today! #coding #programming</p>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- End Sample Post -->
+                        <!-- Add more posts here -->
+                        <li class="list-group-item">
+                            <a href="post_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="User Image"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Jane Smith</h5>
+                                        <p>Just finished a challenging project! #softwareengineering #teamwork</p>
+                                        <small class="text-muted">1 day ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="post_detail.html">
+                                <div class="media">
+                                    <img src="/Assets/D_images/ysu.jpg" class="mr-3" alt="User Image"
+                                        style="width: 50px; height: 50px;" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Bob Johnson</h5>
+                                        <p>Excited to start the new semester! #education #learning</p>
+                                        <small class="text-muted">1 week ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light py-4 mt-5" style="background-color: #f2f2ff;">
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="nav-link fw-bold fs-4" aria-current="page" href="/index.html">Deducation</a>
+                </div>
+                <div class="col-md-2">
+                    <a class="nav-link" aria-current="page" href="about_us.html">About us</a>
+                </div>
+                <div class="col-md-2">
+                    <a class="nav-link" aria-current="page" href="user_agreement.html">User agreement</a>
+                </div>
+                <div class="col-md-2">
+                    <a class="nav-link" aria-current="page" href="privacy_policy.html">Privacy policy</a>
+                </div>
+                <div class="col-md-3 text-center text-md-end">
+                    <p>&copy; 2023</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script>
+        function openPersonalPage() {
+            // Redirect to the personal page HTML (replace 'YSU.html' with the actual file path)
+            window.location.href = 'personal_page.html';
+        }
+        
+    </script>
+</body>
+
+</html>

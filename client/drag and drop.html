@@ -1,0 +1,97 @@
+<div class="container my-5">
+    <div class="row text-center">
+      <div class="card shadow">
+        <div class="card-body" style="width: 100%;">
+          <div class="form-group">
+            <div class="dropzone text-center" id="dropzone">
+              <i class="bi bi-file-earmark-pdf fs-1" id="uploadIcon"></i>
+              <p class="lead my-3">Drag and drop PDF files here</p>
+            </div>
+            <input type="file" id="pdfInput" class="form-control d-none" accept=".pdf" multiple>
+          </div>
+          <div class="form-group">
+            <div id="pdfList"></div>
+          </div>
+          <button type="submit" class="btn btn-primary d-none" id="submit-btn">Save</button>
+          <button type="button" class="btn btn-danger d-none" id="remove-btn">Remove All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const dropzone = document.getElementById('dropzone');
+    const pdfInput = document.getElementById('pdfInput');
+    const pdfList = document.getElementById('pdfList');
+    const removeButton = document.getElementById('remove-btn');
+    const submitButton = document.getElementById('submit-btn');
+    const uploadIcon = document.getElementById('uploadIcon');
+  
+    function removeUploadIcon() {
+      uploadIcon.remove();
+    }
+  
+    function addPdfToList(file) {
+      const pdfItem = document.createElement('div');
+      pdfItem.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-3', 'p-3', 'bg-light');
+      pdfItem.innerHTML = `
+        <div class="d-flex align-items-center">
+          <i class="bi bi-file-earmark-pdf me-3"></i>
+          <div>${file.name}</div>
+        </div>
+        <button type="button" class="btn btn-danger" data-file="${file.name}">Remove</button>
+      `;
+      pdfList.appendChild(pdfItem);
+    }
+  
+    function displayPdfs(files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        addPdfToList(file);
+      }
+  
+      removeUploadIcon();
+      removeButton.classList.remove('d-none');
+      submitButton.classList.remove('d-none');
+    }
+  
+    function removePdf(pdfItem) {
+      pdfList.removeChild(pdfItem);
+      if (pdfList.children.length === 0) {
+        submitButton.classList.add('d-none');
+        removeButton.classList.add('d-none');
+        pdfList.innerHTML = '';
+        dropzone.appendChild(uploadIcon);
+      }
+    }
+  
+    dropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropzone.classList.add('bg-light');
+    });
+  
+    dropzone.addEventListener('dragleave', () => {
+      dropzone.classList.remove('bg-light');
+    });
+  
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('bg-light');
+      const files = e.dataTransfer.files;
+      displayPdfs(files);
+    });
+  
+    pdfInput.addEventListener('change', () => {
+      const files = pdfInput.files;
+      displayPdfs(files);
+    });
+  
+    pdfList.addEventListener('click', (e) => {
+      if (e.target.tagName.toLowerCase() === 'button') {
+        const pdfItem = e.target.closest('.bg-light');
+        const fileName = e.target.dataset.file;
+        removePdf(pdfItem);
+      }
+    });
+  </script>
+  

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF OCR Example</title>
+</head>
+<body>
+
+    <h1>PDF OCR Example</h1>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="pdfInput" accept=".pdf">
+        <button type="button" onclick="uploadPDF()">Upload PDF</button>
+    </form>
+
+    <div id="resultContainer">
+        <h2>OCR Result:</h2>
+        <pre id="ocrResult"></pre>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        function uploadPDF() {
+    var fileInput = document.getElementById('pdfInput');
+    var file = fileInput.files[0];
+
+    if (file) {
+        var formData = new FormData();
+        formData.append('pdfFile', file);
+
+        $.ajax({
+            type: 'POST',
+            url: 'https://localhost:7254/OCR/upload', // Replace with your backend endpoint
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                displayOCRResult(response);
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        });
+    } else {
+        alert('Please select a PDF file.');
+    }
+}
+
+function displayOCRResult(result) {
+    var resultContainer = document.getElementById('resultContainer');
+    var ocrResult = document.getElementById('ocrResult');
+
+    ocrResult.textContent = result;
+    resultContainer.style.display = 'block';
+}
+    </script>
+</body>
+
+</html>
