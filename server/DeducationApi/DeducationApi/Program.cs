@@ -56,6 +56,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddScoped<IUniversityRepository, UniversityRepository>();
 builder.Services.AddScoped<ISignInRepository, SignInRepository>();
+builder.Services.AddScoped<IOCRRepository, OCRRepository>();
+
 
 var app = builder.Build();
 app.UseCors("AllowSpecificOrigin");

@@ -1,91 +1,30 @@
-﻿// Install the Tesseract.Net NuGet package
-// Install the Microsoft.AspNetCore.Mvc.NewtonsoftJson NuGet package for JSON serialization
-
-using java.awt;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using IronOcr;
 using System.Diagnostics;
+using DeducationApi.Repositories;
 
 [ApiController]
 [Route("[controller]")]
 public class OCRController : ControllerBase
 {
-    [HttpPost("upload")]
-    public IActionResult UploadFile(IFormFile[] pdfFiles)
+    private readonly IOCRRepository _oCRRepository;
+    public OCRController(IOCRRepository oCRRepository)
     {
-        if (pdfFiles == null || pdfFiles.Length == 0)
-            return BadRequest("No file uploaded.");
-
-        List<string> extractedStrings = new List<string>();
-
-        foreach (IFormFile pdfFile in pdfFiles)
-        {
-            try
-            {
-                var ocr = new IronTesseract();
-
-                using (var image = new OcrInput(pdfFile.OpenReadStream()))
-                {
-                    var result = ocr.Read(image);
-
-                    if (result != null)
-                    {
-                        var extractedText = result.Text;
-                        var str = extractedText.Remove(extractedText.Length - 454);
-
-                        string inputText = str;
-
-                        string summary = GetSummaryFromPythonScript(inputText);
-
-                        if (pdfFile == null || pdfFile.Length == 0)
-                            return BadRequest("No file uploaded.");
-
-                        extractedStrings.Add(summary);
-                    }
-                    else
-                    {
-                        return BadRequest("Failed to extract text from the image.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error: {ex.Message}");
-            }
-        }
-
-        return Ok(extractedStrings);
+        _oCRRepository = oCRRepository;
     }
 
-
-    static string GetSummaryFromPythonScript(string inputText)
+    [HttpPost]
+    [Route("FileSummarization")]
+    public async Task<IActionResult> UploadFile(IFormFile file1, IFormFile file2)
     {
-        string pythonScriptPath = "C:\\Users\\Garo\\Desktop\\TestProjects\\DeducationApi\\summarizer.py"; // Update with the correct path
+        if (file1 == null || file2 == null)
+            return BadRequest("No file uploaded.");
 
-        using (Process process = new Process())
-        {
-            process.StartInfo.FileName = "python";
-            process.StartInfo.Arguments = $"{pythonScriptPath}";
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.CreateNoWindow = true;
 
-            process.Start();
+        var result = await _oCRRepository.SummarizePdfFiles(file1, file2);
+        if (result == null)
+            return NotFound();
 
-            using (StreamWriter writer = process.StandardInput)
-            {
-                if (writer.BaseStream.CanWrite)
-                {
-                    writer.Write(inputText);
-                }
-            }
-
-            using (StreamReader reader = process.StandardOutput)
-            {
-                return reader.ReadToEnd();
-            }
-        }
+        return Ok(result);
     }
 }
