@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Form</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Display sections in a column */
+            align-items: center; /* Center align sections */
+        }
+        .result-container {
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+        #bottomResult {
+            width: 90%; /* Adjust the width as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container" id="leftResult">
+        <!-- Left Result will be displayed here -->
+    </div>
+    <div class="result-container" id="rightResult">
+        <!-- Right Result will be displayed here -->
+    </div>
+    <div class="result-container" id="bottomResult">
+        <!-- Third Result will be displayed here -->
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const results = JSON.parse(urlParams.get('result'));
+
+        // Display the results in separate containers
+        const leftResultContainer = document.getElementById('leftResult');
+        const rightResultContainer = document.getElementById('rightResult');
+        const bottomResultContainer = document.getElementById('bottomResult');
+
+        // Assuming results.length is 3 (for left, right, and bottom)
+        leftResultContainer.innerText = `${results[0]}`;
+        rightResultContainer.innerText = `${results[1]}`;
+        bottomResultContainer.innerText = `${results[2]}`;
+    </script>
+</body>
+</html>
